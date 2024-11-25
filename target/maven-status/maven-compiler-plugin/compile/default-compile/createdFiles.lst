@@ -1,0 +1,10 @@
+logica\RopaManager.class
+DetalleProductoServlet.class
+servlets\LoginServlet.class
+servlets\LogoutServlet.class
+logica\UserManager.class
+com\kobcoee\mavenproject1\JakartaRestConfiguration.class
+logica\Ropa.class
+logica\User.class
+servlets\RopaServlet.class
+com\kobcoee\mavenproject1\resources\JakartaEE11Resource.class
