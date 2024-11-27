@@ -1,0 +1,188 @@
+/* Reseteo de márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Añadido para mejorar el control de tamaño */
+}
+
+body {
+    background: rgb(245, 245, 245);
+    font-family: serif;
+}
+
+/* Contenedor general */
+#container {
+    width: 70%;
+    max-width: 1100px;
+    margin: 0 auto;
+    /* border: 1px solid black; 
+}
+
+/* Contenedor del logo y nombre */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo del logo */
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+/* Estilo del nombre */
+#nombreEsq {
+    font-size: 2em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 100px 0; /* Mejorar el espaciado */
+    color: white;
+    border-bottom: 3px solid black;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('img/logokobcoee.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Navegación */
+nav {
+    background: lightblue;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+    line-height: 30px;
+}
+
+/* Clearfix */
+.clearfix {
+    clear: both;
+}
+
+/* Contenido */
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: green;
+    min-height: 500px;
+    padding: 40px;
+    width: 80%; /* Ajustar según el layout */
+}
+
+aside {
+    width: 20%;
+    background: rgb(245, 245, 245);
+    min-height: 500px;
+    padding: 10px;
+}
+
+/* Nombre de la tienda */
+#nombre {
+    font-family: serif;
+    text-decoration: underline;
+    text-shadow: 3px 5px 5px gray;
+    font-size: 150px;
+    text-shadow: 
+        -2px -2px 0 #000,  
+        2px -2px 0 #000,  
+        -2px 2px 0 #000,   
+        2px 2px 0 #000; 
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+/* Estilo de artículos */
+.tituloAr, .article, .Historia {
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.article:first-child {
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.article h2 {
+    font-size: 25px;
+}
+
+/* Paginación */
+.paginacion {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paginacion a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.paginacion a:hover {
+    text-decoration: underline;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que los elementos se acomoden en múltiples filas */
+    justify-content: flex-start;  /* Empuja los elementos hacia la izquierda, no centrado */
+    gap: 20px;  /* Separación entre las tarjetas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Cada tarjeta de producto */
+.product-card {
+    width: calc(33% - 20px);  /* Controla el tamaño de las tarjetas, en 3 columnas */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;  /* Separación entre las filas */
+}
+
+/* En pantallas más pequeñas, ajustar el número de columnas */
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px);  /* 2 tarjetas por fila */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;  /* 1 tarjeta por fila */
+    }
+}
+/* Contenedor principal del navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye espacio entre el menú y la imagen */
+    padding: 10px 20px;
+    background-color: #f8f9fa; /* Color de fondo opcional */
+    border-bottom: 1px solid #ddd; /* Línea inferior opcional */
+}
+

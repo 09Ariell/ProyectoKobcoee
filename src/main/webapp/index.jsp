@@ -9,6 +9,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="/componentes/headerContent.jsp" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<link rel=“stylesheet” href=“css/styles.css”>
 
 
 
@@ -47,13 +48,14 @@
                     <h3><%= ropa.getNombre() %></h3>
                     <p><%= ropa.getDescripcion() %></p>
                     <span><%= ropa.getTalla() %></span>
+                    <p><%= ropa.getPrecio()+"$"%></p>
                 </div>
             </a>
         </div>
         <% } %>
     </div>
 
-    <div class="paginacion">
+    <div class="pagination">
         <%
             int totalPaginas = (int) Math.ceil((double) totalProductos / productosPorPagina);
             for (int i = 1; i <= totalPaginas; i++) {
@@ -62,10 +64,6 @@
         <% } %>
     </div>
 </section>
-
-<%@ include file="/componentes/footer.jsp" %>
-
-<%@ include file="/componentes/aside.jsp" %>
 <div class="clearfix"></div>
 <%@ include file="/componentes/footer.jsp" %>
 <%@ include file="/componentes/footerContent.jsp" %>

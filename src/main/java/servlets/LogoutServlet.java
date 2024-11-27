@@ -44,10 +44,8 @@ public class LogoutServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Invalidar la sesión del usuario
         request.getSession().invalidate();
-        
-        // Redirigir a la página de inicio (puede ser tu página de login o home)
+
         response.sendRedirect("index.jsp");
     }
 

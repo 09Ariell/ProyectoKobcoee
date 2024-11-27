@@ -16,9 +16,11 @@ public class Ropa {
     private String color;
     private String talla;
     private String imagen;
+    private double precio;
     private int id;
+    private int stock;
 
-    public Ropa(String nombre, String descripcion, String tipo, String color, String talla, String imagen, int id) {
+    public Ropa(String nombre, String descripcion, String tipo, String color, String talla, String imagen, int id, double precio, int stock) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
@@ -26,6 +28,8 @@ public class Ropa {
         this.talla = talla;
         this.imagen = imagen;
         this.id = id;
+        this.precio = precio;
+        this.stock=stock;
     }
 
     public String getNombre() {
@@ -82,5 +86,17 @@ public class Ropa {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public double getPrecio() {
+        return precio;
+    }
+    public void setPrecio(double precio){
+        this.precio=precio;
+    }
+    public int getStock() {
+        return stock;
+    }
+    public void setStock(int stock){
+        this.stock=stock;
     }
 }

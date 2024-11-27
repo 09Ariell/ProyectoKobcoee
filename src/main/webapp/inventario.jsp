@@ -3,10 +3,10 @@
     Created on : 23-11-2024, 12:54:30 p. m.
     Author     : tobar
 --%>
-
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="/componentes/headerContent.jsp" %>
-
+<%@ page import="logica.Ropa, logica.RopaManager" %>
 <header>
     <h1 id="nombre">KOBCOEE</h1>
 </header>
@@ -15,36 +15,58 @@
 <div class="clearfix"></div>
 
 <section id="content">
-    <h1 class="tituloAr">Inventario</h1>
-    <div class="inventory">
-        <div class="product-card">
-            <img src="img/poleronesmexicanos.png" alt="Polerones Mexicanos" class="product-img">
-            <div class="product-info">
-                <h3>Polerones Mexicanos</h3>
-                <p>Polerones mexicanos de excelente calidad</p>
-                <span>Disponibles en todas las tallas</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="img/polerones.png" alt="Polerones" class="product-img">
-            <div class="product-info">
-                <h3>Polerones</h3>
-                <p>Polerones de todas las tallas y colores</p>
-                <span>Diseños exclusivos</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="img/image.png" alt="Ropa Deportiva" class="product-img">
-            <div class="product-info">
-                <h3>Ropa Deportiva</h3>
-                <p>Ropa deportiva de alta calidad</p>
-                <span>Amplia variedad y estilos</span>
-            </div>
-        </div>
-    </div>
-</section>
+    <h3>Productos en el Inventario</h3>
 
-<%@ include file="/componentes/aside.jsp" %>
+    <div class="producto-container">
+       <%
+         int pageSize = 9;  
+         int currentPage = 1;  
+         if (request.getParameter("pagef") != null) {
+              currentPage = Integer.parseInt(request.getParameter("pagef")); 
+         }
+    
+         List<Ropa> productos = RopaManager.getProductos();
+         int totalProductos = productos.size();
+         int totalPages = (int) Math.ceil((double) totalProductos / pageSize); 
+    
+         int startIndex = (currentPage - 1) * pageSize;
+         int endIndex = Math.min(startIndex + pageSize, totalProductos);
+    
+         List<Ropa> productosPagina = productos.subList(startIndex, endIndex); 
+        %>
+
+        <% for (Ropa producto : productosPagina) { %>
+            <div class="producto">
+                <img src="<%= producto.getImagen() %>" alt="<%= producto.getNombre() %>">
+                <div class="producto-details">
+                    <h4><%= producto.getNombre() %></h4>
+                    <p><strong>Descripción:</strong> <%= producto.getDescripcion() %></p>
+                    <p><strong>Precio:</strong> $<%= producto.getPrecio() %></p>
+                    <p><strong>Talla:</strong> <%= producto.getTalla() %></p>
+                    <p><strong>Color:</strong> <%= producto.getColor() %></p>
+                    <p><strong>Stock:</strong> <%= producto.getStock() %></p>
+                </div>
+                <div class="producto-actions">
+                    <a href="editarProducto.jsp?id=<%= producto.getId() %>" class="edit">Editar</a>
+                    <form action="EliminarProductoServlet" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= producto.getId() %>">
+                        <button type="submit" class="delete">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+    </div>
+        <div class="pagination">
+            <% for (int i = 1; i <= totalPages; i++) { %>
+                <a href="inventario.jsp?pagef=<%= i %>"><%= i %></a>
+            <% } %>
+        </div>
+
+        <div class="agregar-producto">
+            <a href="añadirProducto.jsp" class="btn">Añadir Producto</a>
+        </div>
+</section>
+        
 
 <div class="clearfix"></div>
 

@@ -17,9 +17,8 @@ public class UserManager {
     private static List<User> users = new ArrayList<>();
 
     static {
-        // Usuarios de ejemplo
         users.add(new User(1, "Admin", "admin@example.com", "1234567890", "admin", "admin123"));
-        users.add(new User(2, "John Doe", "user@example.com", "0987654321", "user", "user123"));
+        users.add(new User(2, "user", "user@example.com", "0987654321", "user", "user123"));
     }
 
     public static User authenticate(String username, String password) {
@@ -37,5 +36,11 @@ public class UserManager {
             }
         }
         return false; 
+    }
+    public static void addUser(User user) {
+    users.add(user);
+    }
+    public static List<User> getUsers() {
+    return users;
     }
 }
